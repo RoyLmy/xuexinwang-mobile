@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学信网</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- 主应用容器 -->
+    <div class="app-container">
+        <!-- 首页/学信档案 -->
+        <div class="page active" id="home-page">
+            <div class="page-content">
+                <!-- 学信档案头部 -->
+                <div class="archive-header-home">
+                    <div class="archive-logo">
+                        <span class="archive-logo-icon">📄</span>
+                        <span class="archive-logo-text">学信档案</span>
+                    </div>
+                    <button class="play-btn">▶</button>
+                </div>
+
+                <!-- 职业测评卡片 -->
+                <div class="career-test-card">
+                    <div class="test-icon-wrapper">
+                        <div class="test-icon-bg">✈️</div>
+                    </div>
+                    <div class="test-content">
+                        <span class="test-title">测测你的职业决策风格</span>
+                    </div>
+                    <button class="test-btn">去测评</button>
+                </div>
+
+                <!-- 高校调查横幅 -->
+                <div class="survey-banner">
+                    <div class="survey-content">
+                        <h3>高校毕业生跟踪调查问卷</h3>
+                        <button class="survey-btn">立即前往 ></button>
+                    </div>
+                    <div class="survey-icon">💼</div>
+                </div>
+
+                <!-- 服务网格 -->
+                <div class="services-grid-home">
+                    <div class="service-row">
+                        <div class="service-item-home" data-page="education-page">
+                            <div class="service-icon green">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                                </svg>
+                            </div>
+                            <div class="service-text">高等教育信息</div>
+                        </div>
+                        <div class="service-item-home" data-page="verification-report-page">
+                            <div class="service-icon green">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div class="service-text">在线验证报告</div>
+                        </div>
+                        <div class="service-item-home" data-page="degree-verification-page">
+                            <div class="service-icon green">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                                </svg>
+                            </div>
+                            <div class="service-text">学历学位认证<br>与成绩验证</div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-row">
+                        <div class="service-item-home" data-page="overseas-report-page">
+                            <div class="service-icon blue">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </div>
+                            <div class="service-text">出国报告发送</div>
+                        </div>
+                        <div class="service-item-home" data-page="image-verification-page">
+                            <div class="service-icon green">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                                </svg>
+                            </div>
+                            <div class="service-text">毕业证书图像<br>校对</div>
+                        </div>
+                        <div class="service-item-home" data-page="employment-page">
+                            <div class="service-icon green">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M10 16V8c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2h-8c-1.1 0-2-.9-2-2zm2-6v6h8V10h-8zM4 18c0 1.1.9 2 2 2h8v-2H6V6H4v12z"/>
+                                </svg>
+                            </div>
+                            <div class="service-text">就业</div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-row">
+                        <div class="service-item-home" data-page="satisfaction-page">
+                            <div class="service-icon yellow">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM12 20c-4.41 0-8-3.59-8-8 0-1.12.23-2.19.65-3.17l1.73 1.73c-.24.47-.38.99-.38 1.54 0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5c0-.55-.14-1.07-.38-1.54l1.73-1.73c.42.98.65 2.05.65 3.17 0 4.41-3.59 8-8 8z"/>
+                                </svg>
+                            </div>
+                            <div class="service-text">学校满意度</div>
+                        </div>
+                        <div class="service-item-home" data-page="assessment-page">
+                            <div class="service-icon blue">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H18V1h-2v1H8V1H6v1H4.5C3.67 2 3 2.67 3 3.5v17C3 21.33 3.67 22 4.5 22h15c.83 0 1.5-.67 1.5-1.5v-17C21 2.67 20.33 2 19.5 2z"/>
+                                </svg>
+                            </div>
+                            <div class="service-text">个人测评</div>
+                        </div>
+                        <div class="service-item-home" data-page="info-verification-page">
+                            <div class="service-icon blue">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                                </svg>
+                            </div>
+                            <div class="service-text">信息核查确认</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学职平台页面 -->
+        <div class="page" id="platform-page">
+            <div class="page-content">
+                <div class="platform-header">
+                    <div class="logo">
+                        <span class="logo-icon">📚</span>
+                        <span class="logo-text">学职平台</span>
+                    </div>
+                    <div class="notification-icon">🔔</div>
+                </div>
+
+                <div class="user-profile">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-info">
+                        <h3>金启思</h3>
+                        <div class="user-details">
+                            <div>当前职业：</div>
+                            <div>擅长技能：</div>
+                        </div>
+                    </div>
+                    <button class="detail-btn">详情 ></button>
+                </div>
+
+                <div class="assessment-section">
+                    <div class="assessment-header">
+                        <h3>综合测评报告 ℹ️</h3>
+                        <span class="assessment-link">分类测评报告 ></span>
+                    </div>
+                    <div class="progress-section">
+                        <div class="progress-text">已完成 <span class="progress-number">0%</span></div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-badge">多数人完成</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 职业探索页面 -->
+        <div class="page" id="career-page">
+            <div class="page-content">
+                <div class="platform-header">
+                    <div class="logo">
+                        <span class="logo-icon">📚</span>
+                        <span class="logo-text">学职平台</span>
+                    </div>
+                    <div class="notification-icon">🔔</div>
+                </div>
+
+                <div class="tab-bar">
+                    <div class="tab">职业人物</div>
+                    <div class="tab active">职业探索</div>
+                    <div class="tab">职业微视频</div>
+                </div>
+
+                <div class="recommendation-section">
+                    <h3>我的职业推荐清单</h3>
+                    <div class="login-prompt">
+                        <div class="locked-content">🔒</div>
+                        <button class="login-btn">
+                            登录账号，解锁与您所学专业匹配的职业！ →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="career-planning-banner">
+                    <div class="banner-content">
+                        <div class="banner-title">怎样度过有意义的大学时光</div>
+                        <button class="planning-btn">生涯规划必读 ></button>
+                    </div>
+                </div>
+
+                <div class="search-section">
+                    <h3>探索更多感兴趣的职业</h3>
+                    <div class="hot-new-tabs">
+                        <span class="active">最热</span>
+                        <span>最新</span>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="输入职业">
+                        <button class="search-btn">查询</button>
+                    </div>
+                </div>
+
+                <div class="category-tabs">
+                    <div class="category active">全部</div>
+                    <div class="category">互联网/通信</div>
+                    <div class="category">金融/贸易</div>
+                    <div class="category">建筑/工程</div>
+                    <div class="category">医疗</div>
+                </div>
+
+                <div class="career-item">
+                    <div class="career-image">💻</div>
+                    <div class="career-info">
+                        <h4>网络工程师</h4>
+                        <p>网络工程师的工作内容：</p>
+                        <p>1、负责机房内的网络联接及网络间...</p>
+                        <div class="career-stats">
+                            <span>👍 98</span>
+                            <span>💬 48</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 职业测评页面 -->
+        <div class="page" id="assessment-page">
+            <div class="page-content">
+                <div class="platform-header">
+                    <div class="logo">
+                        <span class="logo-icon">📚</span>
+                        <span class="logo-text">学职平台</span>
+                    </div>
+                    <div class="notification-icon">🔔</div>
+                </div>
+
+                <div class="nature-banner">
+                    <div class="nature-content">
+                        <h2>我与基层的距离</h2>
+                        <p>走基层，懂基层中国脉动</p>
+                    </div>
+                </div>
+
+                <div class="popular-tests">
+                    <div class="section-header">
+                        <h3>人气测评</h3>
+                        <button class="refresh-btn">换一换 🔄</button>
+                    </div>
+                    
+                    <div class="test-grid">
+                        <div class="test-item">
+                            <div class="test-image">🎨</div>
+                            <div class="test-title">职业兴趣测评</div>
+                        </div>
+                        <div class="test-item">
+                            <div class="test-image">☂️</div>
+                            <div class="test-title">大五人格测试</div>
+                        </div>
+                        <div class="test-item">
+                            <div class="test-image">👩‍💼</div>
+                            <div class="test-title">专业认同感测试</div>
+                        </div>
+                    </div>
+
+                    <div class="feature-cards">
+                        <div class="feature-card blue">
+                            <h4>看见未知的自己📊</h4>
+                            <button class="feature-btn">综合测评报告 ></button>
+                        </div>
+                        <div class="feature-card orange">
+                            <h4>专题汇总🌟</h4>
+                            <button class="feature-btn">热点专题 ></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-categories">
+                    <div class="category-tabs">
+                        <div class="category active">全部</div>
+                        <div class="category">兴趣/性格</div>
+                        <div class="category">态度/评价</div>
+                        <div class="category">能力/素养</div>
+                        <div class="category">生涯</div>
+                    </div>
+                    
+                    <div class="sort-options">
+                        <span class="sort-item active">默认</span>
+                        <span class="sort-item">热度</span>
+                        <span class="sort-item">时间</span>
+                    </div>
+                </div>
+
+                <div class="test-list">
+                    <div class="test-list-item">
+                        <div class="test-icon">🤝</div>
+                        <div class="test-details">
+                            <h4>测你的合作/竞争倾向 ✓</h4>
+                            <p>你更愿意与别人合作还是竞争？测...</p>
+                            <div class="test-meta">
+                                <span>⭐ 4.8</span>
+                                <span>👥 12.5万</span>
+                                <span>⏱️ 3分钟</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 我的页面（退出页面） -->
+        <div class="page" id="my-page">
+            <div class="page-content">
+                <div class="my-header">
+                    <button class="back-btn" onclick="showPage('home-page')">‹</button>
+                    <h2>我的</h2>
+                </div>
+
+                <div class="logout-content">
+                    <div class="logo-wrapper">
+                        <div class="chsi-logo">
+                            <div class="logo-shapes">
+                                <div class="shape blue"></div>
+                                <div class="shape yellow"></div>
+                                <div class="shape green"></div>
+                            </div>
+                        </div>
+                        <h3 class="logo-text">学信档案</h3>
+                    </div>
+
+                    <button class="logout-btn" id="logout-btn">退出</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 登录引导页面 -->
+        <div class="page" id="login-guide-page">
+            <div class="page-content">
+                <div class="login-guide-header">
+                    <div class="chsi-logo-small">
+                        <div class="logo-shapes-small">
+                            <div class="shape blue"></div>
+                            <div class="shape yellow"></div>
+                            <div class="shape green"></div>
+                        </div>
+                        <span class="logo-text-small">学信档案</span>
+                    </div>
+                    <button class="menu-btn">≡</button>
+                </div>
+
+                <div class="guide-content">
+                    <div class="guide-banner">
+                        <h2>您的高等教育信息档案</h2>
+                        <div class="guide-buttons">
+                            <button class="login-btn-primary" id="go-to-login">登录</button>
+                            <button class="register-btn-outline">注册学信网账号</button>
+                        </div>
+                    </div>
+
+                    <div class="guide-illustration">
+                        <div class="character-wrapper">
+                            <div class="character">👨‍💻</div>
+                            <div class="books">📚</div>
+                        </div>
+                        <div class="clouds">☁️ ☁️ ☁️</div>
+                    </div>
+
+                    <div class="guide-footer">
+                        <p class="guide-description">免费查看学籍、学历、学位信息</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 登录表单页面 -->
+        <div class="page" id="login-form-page">
+            <div class="page-content">
+                <div class="login-form-header">
+                    <div class="chsi-logo-login">
+                        <div class="logo-shapes-login">
+                            <div class="shape blue"></div>
+                            <div class="shape yellow"></div>
+                            <div class="shape green"></div>
+                        </div>
+                        <span class="logo-text-login">学信档案</span>
+                    </div>
+                </div>
+
+                <div class="login-form-content">
+                    <p class="login-instruction">请使用 学信网账号 进行登录</p>
+                    
+                    <form class="login-form" id="login-form">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="手机号/邮箱" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" placeholder="密码" id="password" required>
+                        </div>
+                        <button type="submit" class="login-submit-btn">登录</button>
+                    </form>
+
+                    <div class="login-footer">
+                        <span class="forgot-password">找回密码</span>
+                        <span class="register-link">注册</span>
+                    </div>
+                </div>
+
+                <div class="app-footer">
+                    <div class="footer-links">
+                        <span>首页</span>
+                        <span>帮助中心</span>
+                        <span>学信机器人</span>
+                        <span>联系我们</span>
+                    </div>
+                    <p class="copyright">Copyright © 2003-2025 学信网 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 高等教育信息页面 -->
+        <div class="page" id="education-page">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('home-page')">‹</button>
+                    <h2>高等教育信息</h2>
+                </div>
+
+                <div class="satisfaction-banner">
+                    <div class="banner-content">
+                        <h3>院校满意度 投票</h3>
+                        <p>本校的生活条件、环境及综合情况</p>
+                        <div class="satisfaction-icons">
+                            <span class="satisfaction-icon">😊</span>
+                            <span class="satisfaction-text">综合情况</span>
+                            <span class="satisfaction-icon">🎯</span>
+                            <span class="satisfaction-text">校园环境</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="section-header">
+                        <h3>学籍信息 (2)</h3>
+                        <span class="toggle-text">还有学籍没有显示出来？<span class="link">尝试绑定</span></span>
+                    </div>
+                    
+                    <div class="info-card green clickable" data-page="student-status-undergraduate" data-level="本科">
+                        <div class="card-content">
+                            <h4>北京航空航天大学</h4>
+                            <p>软件工程 | 普通全日制</p>
+                        </div>
+                        <div class="card-badge">本科</div>
+                    </div>
+
+                    <div class="info-card green clickable" data-page="student-status-graduate" data-level="研究生">
+                        <div class="card-content">
+                            <h4>北京航空航天大学</h4>
+                            <p>计算机科学与技术 | 普通全日制</p>
+                        </div>
+                        <div class="card-badge">研究生</div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="section-header">
+                        <h3>学历信息 (2)</h3>
+                        <span class="toggle-text">还有学历没有显示出来？<span class="link">尝试绑定</span></span>
+                    </div>
+                    
+                    <div class="info-card blue clickable" data-page="education-undergraduate" data-level="本科">
+                        <div class="card-content">
+                            <h4>北京航空航天大学</h4>
+                            <p>软件工程 | 普通全日制</p>
+                        </div>
+                        <div class="card-badge">本科</div>
+                    </div>
+
+                    <div class="info-card blue clickable" data-page="education-graduate" data-level="研究生">
+                        <div class="card-content">
+                            <h4>北京航空航天大学</h4>
+                            <p>计算机科学与技术 | 普通全日制</p>
+                        </div>
+                        <div class="card-badge">研究生</div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="section-header">
+                        <h3>学位信息 (2)</h3>
+                        <span class="toggle-text">还有学位没有显示出来？<span class="link">尝试绑定</span></span>
+                    </div>
+                    
+                    <div class="info-card purple">
+                        <div class="card-content">
+                            <h4>北京航空航天大学</h4>
+                            <p>工学学士学位 | 软件工程</p>
+                        </div>
+                        <div class="card-badge">学士</div>
+                    </div>
+
+                    <div class="info-card purple">
+                        <div class="card-content">
+                            <h4>北京航空航天大学</h4>
+                            <p>工学硕士学位 | 计算机科学与技术</p>
+                        </div>
+                        <div class="card-badge">硕士</div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="section-header">
+                        <h3>考研信息</h3>
+                    </div>
+                    
+                    <div class="no-data-prompt">
+                        <div class="no-data-icon">📚</div>
+                        <p class="no-data-text">暂无任何考研信息</p>
+                        <p class="no-data-desc">如有考研相关信息，请联系管理员添加</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 在线验证报告页面 -->
+        <div class="page" id="verification-report-page">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('home-page')">‹</button>
+                    <h2>在线验证报告</h2>
+                </div>
+                
+                <div class="report-categories">
+                    <h3>报告分类</h3>
+                    <div class="report-grid">
+                        <div class="report-item">
+                            <div class="report-image">📄</div>
+                            <div class="report-title">高等教育学历</div>
+                        </div>
+                        <div class="report-item">
+                            <div class="report-image">📄</div>
+                            <div class="report-title">中等教育学历</div>
+                        </div>
+                        <div class="report-item">
+                            <div class="report-image">📄</div>
+                            <div class="report-title">高等教育学历信息</div>
+                        </div>
+                        <div class="report-item">
+                            <div class="report-image">📄</div>
+                            <div class="report-title">高考成绩</div>
+                        </div>
+                        <div class="report-item">
+                            <div class="report-image">📄</div>
+                            <div class="report-title">中考成绩</div>
+                        </div>
+                        <div class="report-item">
+                            <div class="report-image">📄</div>
+                            <div class="report-title">会考成绩</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-notice">
+                    <h3>您尚未绑定任何报告</h3>
+                    <p>如果您已经有了相关证件，请点击下方按钮进行绑定验证。</p>
+                    <button class="bind-btn">开始绑定</button>
+                    <div class="help-links">
+                        <p>这者学历的成绩认证获咨询：<a href="#">去咨询</a></p>
+                        <p>高考学历认证报告：<a href="#">去申请</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学历学位认证与成绩验证页面 -->
+        <div class="page" id="degree-verification-page">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('home-page')">‹</button>
+                    <h2>学历学位认证</h2>
+                </div>
+                
+                <div class="verification-banner">
+                    <div class="computers-illustration">
+                        <div class="computer">💻</div>
+                        <div class="connection-line"></div>
+                        <div class="computer">💻</div>
+                    </div>
+                    <h3>通过学信网向国际合作机构发送认证验证报告！</h3>
+                    <button class="send-btn">发送报告</button>
+                    <p class="help-text">功能介绍 申请表文档手册</p>
+                </div>
+
+                <div class="partners-section">
+                    <div class="partner-logos">
+                        <div class="partner-item">
+                            <div class="partner-logo">🏛️</div>
+                            <div class="partner-name">美国大学电子ApplyWeb<br>申请平台</div>
+                        </div>
+                        <div class="partner-item">
+                            <div class="partner-logo">📋</div>
+                            <div class="partner-name">美国Parchment公司<br>教育认证</div>
+                        </div>
+                        <div class="partner-item">
+                            <div class="partner-logo">⚙️</div>
+                            <div class="partner-name">美国学生信息中心NSLC<br>留学生 如何申请</div>
+                        </div>
+                        <div class="partner-item">
+                            <div class="partner-logo">🔧</div>
+                            <div class="partner-name">Digitary公司<br>为留学生提供</div>
+                        </div>
+                        <div class="partner-item">
+                            <div class="partner-logo">🏫</div>
+                            <div class="partner-name">西方学生资料检验委员会<br>申请平台</div>
+                        </div>
+                        <div class="partner-item">
+                            <div class="partner-logo">📊</div>
+                            <div class="partner-name">加拿大MyeQuals<br>申请平台</div>
+                        </div>
+                        <div class="partner-item">
+                            <div class="partner-logo">🌐</div>
+                            <div class="partner-name">World Education Service...<br>教育认证</div>
+                        </div>
+                        <div class="partner-item">
+                            <div class="partner-logo">🎓</div>
+                            <div class="partner-name">加拿大MyCreds<br>教育认证</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 出国报告发送页面 -->
+        <div class="page" id="overseas-report-page">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('home-page')">‹</button>
+                    <h2>出国报告发送</h2>
+                </div>
+                
+                <div class="overseas-content">
+                    <div class="computers-illustration">
+                        <div class="computer">💻</div>
+                        <div class="connection-line"></div>
+                        <div class="computer">💻</div>
+                    </div>
+                    <h3>通过学信网向国际合作机构发送认证验证报告！</h3>
+                    <button class="send-btn">发送报告</button>
+                    <p class="help-text">功能介绍 申请表文档手册</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 毕业证书图像校对页面 -->
+        <div class="page" id="image-verification-page">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('home-page')">‹</button>
+                    <h2>高等学籍</h2>
+                </div>
+                
+                <div class="satisfaction-banner">
+                    <div class="banner-content">
+                        <h3>专业满意度 投票</h3>
+                        <p>本专业的办学条件、教学质量、就业情况及综合情况</p>
+                        <div class="satisfaction-icons">
+                            <span class="satisfaction-icon">💼</span>
+                            <span class="satisfaction-text">综合情况</span>
+                            <span class="satisfaction-icon">⭐</span>
+                            <span class="satisfaction-text">⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="no-data-section">
+                    <div class="no-data-icon-large">📄</div>
+                    <p class="no-data-text">您没有待校对的图像</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 就业页面 -->
+        <div class="page" id="employment-page">
+            <div class="page-content">
+                <div class="survey-header">
+                    <button class="back-btn" onclick="showPage('home-page')">‹</button>
+                    <h2>调查/投票</h2>
+                </div>
+                
+                <div class="employment-card">
+                    <div class="employment-badge">热门推荐</div>
+                    <h2>就业跟踪</h2>
+                    <p>为了解高校毕业生职业发展现状，帮助大学生做好就业指导，请您参与本次调查，真诚感谢您的参与！</p>
+                    <button class="start-survey-btn">开始填写问卷</button>
+                </div>
+
+                <div class="recommendation-section">
+                    <h3>专业推荐</h3>
+                    <p>根据您每年各专业的办学实力和特色，推荐优势专业。</p>
+                    <p>系统将筛选推荐人数较多的专业，通过<span class="link-text">教育部阳光高考信息平台</span>，为报考本校的学子学妹提供参考。</p>
+                    <button class="recommendation-btn">去推荐</button>
+                </div>
+
+                <div class="satisfaction-section">
+                    <h3>专业满意度</h3>
+                    <p>对各部门进行，以您的观点为准 每名同</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学校满意度页面 -->
+        <div class="page" id="satisfaction-page">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('home-page')">‹</button>
+                    <h2>高等学籍</h2>
+                </div>
+                
+                <div class="satisfaction-banner">
+                    <div class="banner-content">
+                        <h3>专业满意度 投票</h3>
+                        <p>本专业的办学条件、教学质量、就业情况及综合情况</p>
+                        <div class="satisfaction-icons">
+                            <span class="satisfaction-icon">💼</span>
+                            <span class="satisfaction-text">综合情况</span>
+                            <span class="satisfaction-icon">⭐</span>
+                            <span class="satisfaction-text">⭐⭐⭐</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="no-data-section">
+                    <div class="no-data-icon-large">📄</div>
+                    <p class="no-data-text">您没有待校对的图像</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 信息核查确认页面 -->
+        <div class="page" id="info-verification-page">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('home-page')">‹</button>
+                    <h2>信息核查确认</h2>
+                </div>
+                
+                <div class="verification-content">
+                    <div class="verification-icon">🔍</div>
+                    <h3>信息核查确认</h3>
+                    <p>请确认您的个人信息是否正确，如有疑问请及时联系我们。</p>
+                    <button class="verify-btn">开始核查</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 本科学籍详细信息页面 -->
+        <div class="page" id="student-status-undergraduate">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('education-page')">‹</button>
+                    <h2>学籍信息</h2>
+                </div>
+
+                <div class="profile-card green">
+                    <div class="profile-info">
+                        <div class="profile-photos">
+                            <div class="photo-container">
+                                <img src="photo1.jpg" alt="录取照片" class="profile-photo">
+                                <div class="photo-label">录取照片</div>
+                            </div>
+                            <div class="photo-container">
+                                <img src="photo2.jpg" alt="学历照片" class="profile-photo">
+                                <div class="photo-label">学历照片</div>
+                            </div>
+                        </div>
+                        <div class="profile-text">
+                            <h2>金启思</h2>
+                            <p>男 1995年11月20日</p>
+                        </div>
+                    </div>
+                    <div class="profile-school">
+                        <h3>北京航空航天大学</h3>
+                        <p>软件工程 | 普通全日制</p>
+                    </div>
+                    <div class="profile-badge">本科</div>
+                </div>
+
+                <div class="detail-info">
+                    <div class="info-row">
+                        <span class="info-label">民族</span>
+                        <span class="info-value">汉族</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">证件号码</span>
+                        <span class="info-value">210200199511201519</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学制</span>
+                        <span class="info-value">4年</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学历类别</span>
+                        <span class="info-value">普通高等教育</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">分院</span>
+                        <span class="info-value">计算机学院</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">系所</span>
+                        <span class="info-value">计算机科学与技术系</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">班级</span>
+                        <span class="info-value">软件1341</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学号</span>
+                        <span class="info-value">1311421121</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">入学日期</span>
+                        <span class="info-value">2013年09月01日</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学籍状态</span>
+                        <span class="info-value">不在籍（毕业）</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">离校日期</span>
+                        <span class="info-value">2017年06月30日</span>
+                    </div>
+                </div>
+
+                <button class="action-btn">申请验证报告</button>
+            </div>
+        </div>
+
+        <!-- 研究生学籍详细信息页面 -->
+        <div class="page" id="student-status-graduate">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('education-page')">‹</button>
+                    <h2>学籍信息</h2>
+                </div>
+
+                <div class="profile-card green">
+                    <div class="profile-info">
+                        <div class="profile-photos">
+                            <div class="photo-container">
+                                <img src="photo1.jpg" alt="录取照片" class="profile-photo">
+                                <div class="photo-label">录取照片</div>
+                            </div>
+                            <div class="photo-container">
+                                <img src="photo2.jpg" alt="学历照片" class="profile-photo">
+                                <div class="photo-label">学历照片</div>
+                            </div>
+                        </div>
+                        <div class="profile-text">
+                            <h2>金启思</h2>
+                            <p>男 1995年11月20日</p>
+                        </div>
+                    </div>
+                    <div class="profile-school">
+                        <h3>北京航空航天大学</h3>
+                        <p>计算机科学与技术 | 普通全日制</p>
+                    </div>
+                    <div class="profile-badge">研究生</div>
+                </div>
+
+                <div class="detail-info">
+                    <div class="info-row">
+                        <span class="info-label">民族</span>
+                        <span class="info-value">汉族</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">证件号码</span>
+                        <span class="info-value">210200199511201519</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学制</span>
+                        <span class="info-value">3年</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学历类别</span>
+                        <span class="info-value">普通高等教育</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">分院</span>
+                        <span class="info-value">计算机学院</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">系所</span>
+                        <span class="info-value">计算机科学与技术系</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">班级</span>
+                        <span class="info-value">计科硕2017</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学号</span>
+                        <span class="info-value">SY1753201</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">入学日期</span>
+                        <span class="info-value">2017年09月01日</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学籍状态</span>
+                        <span class="info-value">不在籍（毕业）</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">离校日期</span>
+                        <span class="info-value">2020年06月30日</span>
+                    </div>
+                </div>
+
+                <button class="action-btn">申请验证报告</button>
+            </div>
+        </div>
+
+        <!-- 本科学历详细信息页面 -->
+        <div class="page" id="education-undergraduate">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('education-page')">‹</button>
+                    <h2>高等学历</h2>
+                </div>
+
+                <div class="profile-card blue">
+                    <div class="profile-info">
+                        <div class="profile-photos">
+                            <div class="photo-container">
+                                <img src="photo2.jpg" alt="学历照片" class="profile-photo">
+                                <div class="photo-label">学历照片</div>
+                            </div>
+                        </div>
+                        <div class="profile-text">
+                            <h2>金启思</h2>
+                            <p>男 1995年11月20日</p>
+                        </div>
+                    </div>
+                    <div class="profile-school">
+                        <h3>北京航空航天大学</h3>
+                        <p>软件工程 | 普通全日制</p>
+                    </div>
+                    <div class="profile-badge">本科</div>
+                </div>
+
+                <div class="detail-info">
+                    <div class="info-row">
+                        <span class="info-label">入学日期</span>
+                        <span class="info-value">2013年09月01日</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">毕（结）业日期</span>
+                        <span class="info-value">2017年06月30日</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学历类别</span>
+                        <span class="info-value">普通高等教育</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学制</span>
+                        <span class="info-value">4年</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">毕（结）业</span>
+                        <span class="info-value">毕业</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">校（院）长姓名</span>
+                        <span class="info-value">徐惠彬</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">证书编号</span>
+                        <span class="info-value">1143 7120 1705 0018 62</span>
+                    </div>
+                </div>
+
+                <button class="action-btn">申请验证报告</button>
+            </div>
+        </div>
+
+        <!-- 研究生学历详细信息页面 -->
+        <div class="page" id="education-graduate">
+            <div class="page-content">
+                <div class="education-header">
+                    <button class="back-btn" onclick="showPage('education-page')">‹</button>
+                    <h2>高等学历</h2>
+                </div>
+
+                <div class="profile-card blue">
+                    <div class="profile-info">
+                        <div class="profile-photos">
+                            <div class="photo-container">
+                                <img src="photo2.jpg" alt="学历照片" class="profile-photo">
+                                <div class="photo-label">学历照片</div>
+                            </div>
+                        </div>
+                        <div class="profile-text">
+                            <h2>金启思</h2>
+                            <p>男 1995年11月20日</p>
+                        </div>
+                    </div>
+                    <div class="profile-school">
+                        <h3>北京航空航天大学</h3>
+                        <p>计算机科学与技术 | 普通全日制</p>
+                    </div>
+                    <div class="profile-badge">研究生</div>
+                </div>
+
+                <div class="detail-info">
+                    <div class="info-row">
+                        <span class="info-label">入学日期</span>
+                        <span class="info-value">2017年09月01日</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">毕（结）业日期</span>
+                        <span class="info-value">2020年06月30日</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学历类别</span>
+                        <span class="info-value">普通高等教育</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">学制</span>
+                        <span class="info-value">3年</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">毕（结）业</span>
+                        <span class="info-value">毕业</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">校（院）长姓名</span>
+                        <span class="info-value">徐惠彬</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">证书编号</span>
+                        <span class="info-value">1143 7120 2005 0025 89</span>
+                    </div>
+                </div>
+
+                <button class="action-btn">申请验证报告</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="bottom-nav">
+        <div class="nav-item active" data-page="home-page">
+            <div class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </div>
+            <div class="nav-text">首页</div>
+        </div>
+        <div class="nav-item" data-page="education-page">
+            <div class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                </svg>
+            </div>
+            <div class="nav-text">学籍学历学位</div>
+        </div>
+        <div class="nav-item" data-page="assessment-page">
+            <div class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/>
+                </svg>
+            </div>
+            <div class="nav-text">个人测评</div>
+        </div>
+        <div class="nav-item" data-page="career-page">
+            <div class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 6h-2.5l-1.5-1.5h-5L9.5 6H7c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h13c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM14 17H8v-2h6v2zm3-4H8v-2h9v2z"/>
+                </svg>
+            </div>
+            <div class="nav-text">求职招聘</div>
+        </div>
+        <div class="nav-item" data-page="my-page">
+            <div class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </div>
+            <div class="nav-text">我的</div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html> 

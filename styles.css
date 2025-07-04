@@ -1,0 +1,2230 @@
+/* 重置和基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    max-width: 430px; /* iPhone 15 宽度 */
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+
+
+/* 主应用容器 */
+.app-container {
+    margin-top: 0; /* 移除状态栏后不需要margin */
+    margin-bottom: 80px; /* 只留底部导航栏高度 */
+    background: white;
+    min-height: calc(100vh - 80px);
+}
+
+/* 页面容器 */
+.page {
+    display: none;
+    width: 100%;
+}
+
+.page.active {
+    display: block;
+}
+
+.page-content {
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+/* 顶部按钮 */
+.top-section {
+    text-align: center;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 20px;
+    padding: 40px 20px;
+}
+
+.view-btn {
+    background: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 60px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #6366f1;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 功能网格 */
+.function-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    margin-bottom: 20px;
+    background: #e5e5e7;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.function-item {
+    background: white;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #1d1d1f;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.function-item:hover {
+    background-color: #f5f5f7;
+}
+
+.arrow {
+    color: #86868b;
+    font-size: 16px;
+}
+
+/* 横幅 */
+.banner {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.banner-text {
+    flex: 1;
+}
+
+.banner-text div {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.banner-icon {
+    font-size: 40px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 章节标题 */
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1d1d1f;
+}
+
+/* 服务网格 */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.service-item {
+    text-align: center;
+    cursor: pointer;
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 8px;
+    margin: 0 auto 8px auto;
+}
+
+.service-icon.blue {
+    background: linear-gradient(135deg, #007AFF, #5AC8FA);
+}
+
+.service-icon.red {
+    background: linear-gradient(135deg, #FF3B30, #FF9500);
+}
+
+.service-icon.green {
+    background: linear-gradient(135deg, #34C759, #30D158);
+}
+
+.service-icon.yellow {
+    background: linear-gradient(135deg, #FFCC02, #FF9500);
+}
+
+.service-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    color: white;
+}
+
+.service-text {
+    font-size: 12px;
+    color: #1d1d1f;
+    line-height: 1.3;
+}
+
+.service-item-single {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+/* 账号部分 */
+.account-section {
+    text-align: center;
+}
+
+.account-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.account-item:hover {
+    background-color: #f5f5f7;
+}
+
+/* 平台头部 */
+.platform-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 24px;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+.notification-icon {
+    font-size: 24px;
+    color: #FF9500;
+}
+
+/* 用户资料 */
+.user-profile {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f0f0f5, #e5e5ea);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #007AFF, #5AC8FA);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1d1d1f;
+}
+
+.user-details div {
+    color: #86868b;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.detail-btn {
+    background: none;
+    border: none;
+    color: #007AFF;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* 测评部分 */
+.assessment-section {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.assessment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.assessment-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+.assessment-link {
+    color: #007AFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.progress-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.progress-text {
+    font-size: 14px;
+    color: #86868b;
+}
+
+.progress-number {
+    color: #007AFF;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background: #f2f2f7;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #007AFF, #5AC8FA);
+    border-radius: 3px;
+}
+
+.progress-badge {
+    background: #FF9500;
+    color: white;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* 底部导航栏 */
+.bottom-nav {
+    position: fixed;
+    bottom: 0; /* 直接贴底 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #e5e5e7;
+    z-index: 999;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    flex: 1;
+    padding: 5px;
+}
+
+.nav-item.active {
+    color: #007AFF;
+}
+
+.nav-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.nav-text {
+    font-size: 10px;
+    text-align: center;
+}
+
+
+
+/* 响应式设计 */
+@media (max-width: 430px) {
+    body {
+        max-width: 100%;
+    }
+    
+    .bottom-nav {
+        max-width: 100%;
+    }
+    
+    .page-content {
+        padding: 15px;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .function-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* 触摸反馈 */
+.function-item:active,
+.service-item:active,
+.nav-item:active,
+.account-item:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+}
+
+/* 标签栏样式 */
+.tab-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e5e5e7;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+    color: #86868b;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+    color: #007AFF;
+    border-bottom-color: #007AFF;
+}
+
+/* 推荐部分 */
+.recommendation-section {
+    margin-bottom: 25px;
+}
+
+.recommendation-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1d1d1f;
+}
+
+.login-prompt {
+    background: linear-gradient(135deg, #f0f0f5, #e5e5ea);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.locked-content {
+    font-size: 40px;
+    margin-bottom: 15px;
+    opacity: 0.6;
+}
+
+.login-btn {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* 生涯规划横幅 */
+.career-planning-banner {
+    background: linear-gradient(135deg, #34C759, #30D158);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.banner-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.planning-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 搜索部分 */
+.search-section {
+    margin-bottom: 25px;
+}
+
+.search-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #1d1d1f;
+}
+
+.hot-new-tabs {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.hot-new-tabs span {
+    font-size: 14px;
+    color: #86868b;
+    cursor: pointer;
+}
+
+.hot-new-tabs span.active {
+    color: #1d1d1f;
+    font-weight: 600;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #e5e5e7;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-btn {
+    background: #007AFF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* 分类标签 */
+.category-tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.category {
+    white-space: nowrap;
+    padding: 8px 15px;
+    background: #f2f2f7;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #86868b;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.category.active {
+    background: #007AFF;
+    color: white;
+    border-bottom-color: #007AFF;
+}
+
+/* 职业项目 */
+.career-item {
+    display: flex;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.career-image {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #007AFF, #5AC8FA);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+}
+
+.career-info {
+    flex: 1;
+}
+
+.career-info h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1d1d1f;
+}
+
+.career-info p {
+    font-size: 14px;
+    color: #86868b;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.career-stats {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: #86868b;
+}
+
+/* 自然横幅 */
+.nature-banner {
+    background: linear-gradient(135deg, #5AC8FA, #007AFF);
+    border-radius: 15px;
+    padding: 30px 20px;
+    margin-bottom: 25px;
+    color: white;
+    text-align: center;
+}
+
+.nature-content h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.nature-content p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* 热门测试 */
+.popular-tests {
+    margin-bottom: 25px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+.refresh-btn {
+    background: none;
+    border: none;
+    color: #86868b;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.test-item {
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+.test-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF9500, #FFCC02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 10px auto;
+}
+
+.test-title {
+    font-size: 12px;
+    color: #1d1d1f;
+    line-height: 1.3;
+}
+
+/* 功能卡片 */
+.feature-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.feature-card {
+    border-radius: 15px;
+    padding: 20px 15px;
+    color: white;
+    text-align: center;
+}
+
+.feature-card.blue {
+    background: linear-gradient(135deg, #007AFF, #5AC8FA);
+}
+
+.feature-card.orange {
+    background: linear-gradient(135deg, #FF9500, #FFCC02);
+}
+
+.feature-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.feature-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 15px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* 测试分类 */
+.test-categories {
+    margin-bottom: 25px;
+}
+
+.sort-options {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.sort-item {
+    font-size: 14px;
+    color: #86868b;
+    cursor: pointer;
+}
+
+.sort-item.active {
+    color: #1d1d1f;
+    font-weight: 600;
+}
+
+/* 测试列表 */
+.test-list {
+    margin-bottom: 25px;
+}
+
+.test-list-item {
+    display: flex;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.test-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #34C759, #30D158);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.test-details {
+    flex: 1;
+}
+
+.test-details h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1d1d1f;
+}
+
+.test-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: #86868b;
+    margin-top: 8px;
+}
+
+/* 档案头部 */
+.archive-header {
+    text-align: center;
+    background: linear-gradient(135deg, #34C759, #30D158);
+    color: white;
+    padding: 20px;
+    margin: -20px -20px 25px -20px;
+}
+
+.archive-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* 满意度投票 */
+.satisfaction-vote {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.vote-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.vote-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.vote-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+.vote-count {
+    font-size: 12px;
+    color: #86868b;
+}
+
+.vote-btn {
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.university-info {
+    color: #1d1d1f;
+    font-size: 14px;
+}
+
+/* 实习横幅 */
+.internship-banner {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.internship-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.internship-content p {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* 档案服务网格 */
+.services-grid-archive {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.service-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.service-item-archive {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+.service-item-archive .service-icon {
+    margin: 0 auto 10px auto;
+}
+
+.service-item-archive .service-text {
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+/* 教育头部 */
+.education-header {
+    display: flex;
+    align-items: center;
+    background: #34C759;
+    color: white;
+    padding: 15px 20px;
+    margin: -20px -20px 25px -20px;
+    gap: 15px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.education-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* 满意度横幅 */
+.satisfaction-banner {
+    background: linear-gradient(135deg, #007AFF, #5AC8FA);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.banner-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.banner-content p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.satisfaction-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.satisfaction-icon {
+    font-size: 20px;
+}
+
+.satisfaction-text {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* 信息部分 */
+.info-section {
+    margin-bottom: 25px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.section-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+.toggle-text {
+    font-size: 12px;
+    color: #86868b;
+    text-align: right;
+    flex: 1;
+    margin-left: 20px;
+}
+
+.link {
+    color: #34C759;
+    cursor: pointer;
+}
+
+/* 信息卡片 */
+.info-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.info-card.green {
+    background: linear-gradient(135deg, #34C759, #30D158);
+    color: white;
+}
+
+.info-card.blue {
+    background: linear-gradient(135deg, #007AFF, #5AC8FA);
+    color: white;
+}
+
+.info-card.purple {
+    background: linear-gradient(135deg, #8A2BE2, #9370DB);
+    color: white;
+}
+
+.card-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card-content p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.card-badge {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* 学位提示 */
+.degree-prompt {
+    background: #f2f2f7;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.degree-prompt p {
+    font-size: 14px;
+    color: #86868b;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.link-btn {
+    background: none;
+    border: none;
+    color: #34C759;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 无数据提示 */
+.no-data-prompt {
+    background: #f2f2f7;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.no-data-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    opacity: 0.6;
+}
+
+.no-data-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.no-data-desc {
+    font-size: 14px;
+    color: #86868b;
+    line-height: 1.4;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* 首页学信档案头部 */
+.archive-header-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #34C759, #30D158);
+    color: white;
+    padding: 20px;
+    margin: -20px -20px 25px -20px;
+    border-radius: 0;
+}
+
+.archive-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.archive-logo-icon {
+    font-size: 24px;
+}
+
+.archive-logo-text {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.play-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* 职业测评卡片 */
+.career-test-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    gap: 15px;
+}
+
+.test-icon-wrapper {
+    flex-shrink: 0;
+}
+
+.test-icon-bg {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #007AFF, #5AC8FA);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.test-content {
+    flex: 1;
+}
+
+.test-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.test-btn {
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* 高校调查横幅 */
+.survey-banner {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.survey-content {
+    flex: 1;
+}
+
+.survey-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.survey-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.survey-icon {
+    font-size: 40px;
+    opacity: 0.8;
+}
+
+/* 首页服务网格 */
+.services-grid-home {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.service-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.service-item-home {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-item-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.service-item-home .service-icon {
+    margin: 0 auto 10px auto;
+}
+
+.service-item-home .service-text {
+    font-size: 12px;
+    line-height: 1.3;
+    color: #1d1d1f;
+    font-weight: 500;
+}
+
+/* 底部导航栏文字调整 */
+.nav-text {
+    font-size: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* 我的页面头部 */
+#my-page .page-content {
+    background: white;
+}
+
+.my-header {
+    display: flex;
+    align-items: center;
+    background: #34C759;
+    color: white;
+    padding: 15px 20px;
+    margin: -20px -20px 0 -20px;
+    gap: 15px;
+}
+
+.my-header .back-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.my-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* 退出页面内容 */
+.logout-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+}
+
+.logo-wrapper {
+    margin-bottom: 80px;
+}
+
+.chsi-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo-shapes {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.shape {
+    width: 30px;
+    height: 30px;
+    margin-right: -5px;
+    border-radius: 0 15px 15px 0;
+}
+
+.shape.blue {
+    background: #007AFF;
+    z-index: 3;
+}
+
+.shape.yellow {
+    background: #FFCC02;
+    z-index: 2;
+}
+
+.shape.green {
+    background: #34C759;
+    z-index: 1;
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0;
+}
+
+.logout-btn {
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 60px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(52, 199, 89, 0.3);
+}
+
+/* 登录引导页面 */
+#login-guide-page .page-content {
+    background: white;
+}
+
+/* 强制隐藏登录页面的底部导航栏 */
+body:has(#login-guide-page.active) .bottom-nav,
+body:has(#login-form-page.active) .bottom-nav,
+body:has(#my-page.active) .bottom-nav {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* 兼容性方案：直接针对特定页面隐藏导航栏 */
+#login-guide-page.active ~ .bottom-nav,
+#login-form-page.active ~ .bottom-nav,
+#my-page.active ~ .bottom-nav {
+    display: none !important;
+}
+
+/* 附加确保：当这些页面激活时隐藏导航栏 */
+.hide-nav .bottom-nav {
+    display: none !important;
+}
+
+
+
+.login-guide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.chsi-logo-small {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-shapes-small {
+    display: flex;
+    align-items: center;
+}
+
+.logo-shapes-small .shape {
+    width: 20px;
+    height: 20px;
+    margin-right: -3px;
+    border-radius: 0 10px 10px 0;
+}
+
+.logo-text-small {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #86868b;
+    cursor: pointer;
+}
+
+.guide-content {
+    background: linear-gradient(135deg, #E3F2FD, #F0F8FF);
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.guide-banner h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+.guide-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.login-btn-primary {
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(52, 199, 89, 0.3);
+}
+
+.register-btn-outline {
+    background: transparent;
+    color: #34C759;
+    border: 2px solid #34C759;
+    border-radius: 25px;
+    padding: 13px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.guide-illustration {
+    margin: 40px 0;
+    position: relative;
+}
+
+.character-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.character {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.books {
+    font-size: 40px;
+    position: absolute;
+    bottom: -10px;
+    right: -20px;
+}
+
+.clouds {
+    font-size: 20px;
+    opacity: 0.6;
+    margin-top: 20px;
+}
+
+.guide-description {
+    font-size: 18px;
+    color: #34C759;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* 登录表单页面 */
+#login-form-page .page-content {
+    background: white;
+}
+
+.login-form-header {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.chsi-logo-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo-shapes-login {
+    display: flex;
+    align-items: center;
+}
+
+.logo-shapes-login .shape {
+    width: 25px;
+    height: 25px;
+    margin-right: -4px;
+    border-radius: 0 12px 12px 0;
+}
+
+.logo-text-login {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+.login-form-content {
+    padding: 0 20px;
+    margin-bottom: 60px;
+}
+
+.login-instruction {
+    text-align: center;
+    font-size: 16px;
+    color: #86868b;
+    margin-bottom: 40px;
+}
+
+.login-form {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #e5e5e7;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    border-color: #34C759;
+    box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.1);
+}
+
+.login-submit-btn {
+    width: 100%;
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(52, 199, 89, 0.3);
+    margin-top: 10px;
+}
+
+.login-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.forgot-password {
+    color: #86868b;
+    cursor: pointer;
+}
+
+.register-link {
+    color: #34C759;
+    cursor: pointer;
+}
+
+.app-footer {
+    text-align: center;
+    padding: 40px 20px 20px;
+    border-top: 1px solid #f2f2f7;
+    margin-top: 40px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-links span {
+    font-size: 14px;
+    color: #86868b;
+    cursor: pointer;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #b3b3b3;
+    margin: 0;
+}
+
+/* 新页面样式 */
+
+/* 报告分类页面 */
+.report-categories {
+    margin-bottom: 30px;
+}
+
+.report-categories h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1d1d1f;
+}
+
+.report-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.report-item {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid #e5e5e7;
+}
+
+.report-image {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #34C759;
+}
+
+.report-title {
+    font-size: 12px;
+    color: #1d1d1f;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.report-notice {
+    background: #f2f2f7;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.report-notice h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 15px;
+}
+
+.report-notice p {
+    font-size: 14px;
+    color: #86868b;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.bind-btn {
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.help-links p {
+    font-size: 12px;
+    color: #86868b;
+    margin-bottom: 5px;
+}
+
+.help-links a {
+    color: #34C759;
+    text-decoration: none;
+}
+
+/* 验证横幅 */
+.verification-banner {
+    background: linear-gradient(135deg, #F5F5DC, #FFFFE0);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.computers-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.computer {
+    font-size: 40px;
+}
+
+.connection-line {
+    width: 30px;
+    height: 2px;
+    background: #34C759;
+    border-radius: 1px;
+}
+
+.verification-banner h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.send-btn {
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.help-text {
+    font-size: 12px;
+    color: #007AFF;
+    margin: 0;
+}
+
+/* 合作伙伴区域 */
+.partners-section {
+    margin-top: 30px;
+}
+
+.partner-logos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.partner-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.partner-logo {
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+.partner-name {
+    font-size: 12px;
+    color: #1d1d1f;
+    line-height: 1.3;
+}
+
+/* 无数据图标 */
+.no-data-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.no-data-icon-large {
+    font-size: 80px;
+    opacity: 0.3;
+    margin-bottom: 20px;
+}
+
+.no-data-section .no-data-text {
+    font-size: 16px;
+    color: #86868b;
+}
+
+/* 就业页面样式 */
+.survey-header {
+    display: flex;
+    align-items: center;
+    background: #34C759;
+    color: white;
+    padding: 15px 20px;
+    margin: -20px -20px 25px -20px;
+}
+
+.survey-header .back-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.survey-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.employment-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.employment-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: #FF9500;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.employment-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.employment-card p {
+    font-size: 14px;
+    color: #86868b;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.start-survey-btn {
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+.recommendation-section {
+    margin-bottom: 30px;
+}
+
+.recommendation-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 15px;
+}
+
+.recommendation-section p {
+    font-size: 14px;
+    color: #86868b;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.link-text {
+    color: #34C759;
+}
+
+.recommendation-btn {
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 40px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.satisfaction-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 10px;
+}
+
+.satisfaction-section p {
+    font-size: 14px;
+    color: #86868b;
+}
+
+/* 验证内容 */
+.verification-content {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.verification-icon {
+    font-size: 60px;
+    margin-bottom: 25px;
+    color: #007AFF;
+}
+
+.verification-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-bottom: 15px;
+}
+
+.verification-content p {
+    font-size: 14px;
+    color: #86868b;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.verify-btn {
+    background: #007AFF;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* 安全区域适配 */
+@supports (padding: max(0px)) {
+    .bottom-nav {
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+}
+
+/* 详细信息页面样式 */
+.profile-card {
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.profile-card.green {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.profile-card.blue {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+    color: white;
+}
+
+.profile-info {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.profile-photos {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-right: 15px;
+}
+
+.photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 60px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.photo-label {
+    font-size: 12px;
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.profile-text h2 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.profile-text p {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.profile-school {
+    margin-bottom: 15px;
+}
+
+.profile-school h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.profile-school p {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.profile-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.detail-info {
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    margin: 20px 0;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: #666;
+    font-size: 16px;
+    flex: 0 0 120px;
+    white-space: nowrap;
+}
+
+.info-value {
+    color: #333;
+    font-size: 16px;
+    text-align: right;
+    flex: 1;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.action-btn {
+    width: 100%;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
+}
+
+.action-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+.action-btn:active {
+    transform: scale(0.98);
+}
+
+/* 可点击卡片样式 */
+.info-card.clickable {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card.clickable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.info-card.clickable:active {
+    transform: scale(0.98);
+} 
