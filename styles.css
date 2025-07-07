@@ -9,12 +9,12 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #f5f5f7;
     color: #1d1d1f;
-    max-width: 430px; /* iPhone 15 宽度 */
+    max-width: 393px; /* iPhone 15的宽度 */
+    min-height: 852px; /* iPhone 15的高度 */
     margin: 0 auto;
     overflow-x: hidden;
+    position: relative;
 }
-
-
 
 /* 主应用容器 */
 .app-container {
@@ -35,8 +35,9 @@ body {
 }
 
 .page-content {
+    min-height: calc(100vh - 60px); /* 减去底部导航栏高度 */
     padding: 20px;
-    padding-bottom: 0;
+    padding-bottom: 80px; /* 确保内容不被底部导航栏遮挡 */
 }
 
 /* 顶部按钮 */
@@ -292,7 +293,7 @@ body {
 .detail-btn {
     background: none;
     border: none;
-    color: #007AFF;
+    color: #34C759;
     font-size: 16px;
     cursor: pointer;
 }
@@ -320,7 +321,7 @@ body {
 }
 
 .assessment-link {
-    color: #007AFF;
+    color: #34C759;
     font-size: 14px;
     cursor: pointer;
 }
@@ -352,7 +353,7 @@ body {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #007AFF, #5AC8FA);
+    background-color: #25b887;
     border-radius: 3px;
 }
 
@@ -368,53 +369,52 @@ body {
 /* 底部导航栏 */
 .bottom-nav {
     position: fixed;
-    bottom: 0; /* 直接贴底 */
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 430px;
+    max-width: 393px;
+    height: 60px;
     background: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px 0;
     border-top: 1px solid #e5e5e7;
-    z-index: 999;
+    padding: 8px 0;
+    z-index: 1000;
 }
 
 .nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 4px;
+    color: #86868b;
+    text-decoration: none;
     cursor: pointer;
-    flex: 1;
-    padding: 5px;
 }
 
 .nav-item.active {
-    color: #007AFF;
+    color: #25b887;  /* 更新激活状态的颜色 */
 }
 
 .nav-icon {
-    font-size: 24px;
-    margin-bottom: 4px;
+    width: 24px;
+    height: 24px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .nav-icon svg {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
+    width: 20px;
+    height: 20px;
 }
 
 .nav-text {
-    font-size: 10px;
-    text-align: center;
+    font-size: 12px;
+    margin-top: 2px;
 }
-
-
 
 /* 响应式设计 */
 @media (max-width: 430px) {
@@ -474,8 +474,8 @@ body {
 }
 
 .tab.active {
-    color: #007AFF;
-    border-bottom-color: #007AFF;
+    color: #34C759;
+    border-bottom-color: #34C759;
 }
 
 /* 推荐部分 */
@@ -566,7 +566,7 @@ body {
 }
 
 .hot-new-tabs span.active {
-    color: #1d1d1f;
+    color: #34C759;
     font-weight: 600;
 }
 
@@ -617,9 +617,9 @@ body {
 }
 
 .category.active {
-    background: #007AFF;
+    background: #34C759;
     color: white;
-    border-bottom-color: #007AFF;
+    border-bottom-color: #34C759;
 }
 
 /* 职业项目 */
@@ -767,7 +767,7 @@ body {
 }
 
 .feature-card.blue {
-    background: linear-gradient(135deg, #007AFF, #5AC8FA);
+    background: linear-gradient(135deg, #34C759, #30D158);
 }
 
 .feature-card.orange {
@@ -809,7 +809,7 @@ body {
 }
 
 .sort-item.active {
-    color: #1d1d1f;
+    color: #34C759;
     font-weight: 600;
 }
 
@@ -977,30 +977,34 @@ body {
 .education-header {
     display: flex;
     align-items: center;
-    background: #34C759;
+    background: #25b887;
     color: white;
     padding: 15px 20px;
     margin: -20px -20px 25px -20px;
-    gap: 15px;
+    position: relative;
 }
 
 .back-btn {
+    position: absolute;
+    left: 20px;
     background: none;
     border: none;
     color: white;
     font-size: 24px;
     cursor: pointer;
+    z-index: 1;
 }
 
 .education-header h2 {
     font-size: 18px;
     font-weight: 700;
+    flex: 1;
+    text-align: center;
 }
 
 /* 满意度横幅 */
 .satisfaction-banner {
-    background: linear-gradient(135deg, #007AFF, #5AC8FA);
-    border-radius: 15px;
+    background-color: #25b887;
     padding: 20px;
     margin-bottom: 25px;
     color: white;
@@ -1075,7 +1079,7 @@ body {
 }
 
 .info-card.green {
-    background: linear-gradient(135deg, #34C759, #30D158);
+    background-color: #25b887;
     color: white;
 }
 
@@ -1176,16 +1180,31 @@ body {
 .archive-logo {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 0;
+    padding: 15px 20px;
+    margin: -20px -20px 25px -20px;
+    background-color: #25b887;
 }
 
 .archive-logo-icon {
-    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.archive-logo-icon .logo-image {
+    width: 70px;
+    height: 22px;
+    object-fit: contain;
+    margin-right: -2px;
 }
 
 .archive-logo-text {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    margin: 0;
+    padding: 0;
 }
 
 .play-btn {
@@ -1293,6 +1312,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding: 15px;
+    background: #fff;
 }
 
 .service-row {
@@ -1302,29 +1323,45 @@ body {
 }
 
 .service-item-home {
-    background: white;
-    border-radius: 12px;
-    padding: 20px 10px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.service-item-home:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .service-item-home .service-icon {
-    margin: 0 auto 10px auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #25b887;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.service-item-home .service-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    color: white;
 }
 
 .service-item-home .service-text {
-    font-size: 12px;
-    line-height: 1.3;
+    font-size: 13px;
     color: #1d1d1f;
-    font-weight: 500;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* 移除不需要的渐变背景色类 */
+.service-item-home .service-icon.education,
+.service-item-home .service-icon.verify,
+.service-item-home .service-icon.degree,
+.service-item-home .service-icon.blue,
+.service-item-home .service-icon.yellow {
+    background-color: #25b887;
 }
 
 /* 底部导航栏文字调整 */
@@ -1342,24 +1379,29 @@ body {
 .my-header {
     display: flex;
     align-items: center;
-    background: #34C759;
+    background: #25b887;
     color: white;
     padding: 15px 20px;
-    margin: -20px -20px 0 -20px;
-    gap: 15px;
-}
-
-.my-header .back-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
+    margin: -20px -20px 25px -20px;
+    position: relative;
 }
 
 .my-header h2 {
     font-size: 18px;
     font-weight: 700;
+    flex: 1;
+    text-align: center;
+}
+
+.back-btn {
+    position: absolute;
+    left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
 }
 
 /* 退出页面内容 */
@@ -1383,36 +1425,8 @@ body {
     margin-bottom: 20px;
 }
 
-.logo-shapes {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-}
-
-.shape {
-    width: 30px;
-    height: 30px;
-    margin-right: -5px;
-    border-radius: 0 15px 15px 0;
-}
-
-.shape.blue {
-    background: #007AFF;
-    z-index: 3;
-}
-
-.shape.yellow {
-    background: #FFCC02;
-    z-index: 2;
-}
-
-.shape.green {
-    background: #34C759;
-    z-index: 1;
-}
-
 .logo-text {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
     color: #1d1d1f;
     margin: 0;
@@ -1455,8 +1469,6 @@ body:has(#my-page.active) .bottom-nav {
     display: none !important;
 }
 
-
-
 .login-guide-header {
     display: flex;
     justify-content: space-between;
@@ -1484,7 +1496,7 @@ body:has(#my-page.active) .bottom-nav {
 }
 
 .logo-text-small {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: #1d1d1f;
 }
@@ -1521,15 +1533,19 @@ body:has(#my-page.active) .bottom-nav {
 }
 
 .login-btn-primary {
-    background: #34C759;
+    background: linear-gradient(135deg, #40C057, #37B24D);
     color: white;
     border: none;
     border-radius: 25px;
-    padding: 15px 30px;
+    padding: 14px 30px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(52, 199, 89, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.login-btn-primary:hover {
+    transform: translateY(-2px);
 }
 
 .register-btn-outline {
@@ -1608,7 +1624,7 @@ body:has(#my-page.active) .bottom-nav {
 }
 
 .logo-text-login {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
     color: #1d1d1f;
 }
@@ -1880,18 +1896,36 @@ body:has(#my-page.active) .bottom-nav {
 /* 无数据图标 */
 .no-data-section {
     text-align: center;
-    padding: 50px 20px;
+    padding: 40px 20px;
 }
 
 .no-data-icon-large {
-    font-size: 80px;
-    opacity: 0.3;
-    margin-bottom: 20px;
+    font-size: 48px;
+    margin-bottom: 16px;
 }
 
-.no-data-section .no-data-text {
+.no-data-text {
     font-size: 16px;
-    color: #86868b;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* 确保header样式一致 */
+#no-report-page .education-header {
+    display: flex;
+    align-items: center;
+    background: #25b887;
+    color: white;
+    padding: 15px 20px;
+    margin: -20px -20px 25px -20px;
+    position: relative;
+}
+
+#no-report-page .education-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    flex: 1;
+    text-align: center;
 }
 
 /* 就业页面样式 */
@@ -2068,7 +2102,7 @@ body:has(#my-page.active) .bottom-nav {
 }
 
 .profile-card.green {
-    background: linear-gradient(135deg, #4CAF50, #45a049);
+    background-color: #25b887;
     color: white;
 }
 
@@ -2205,7 +2239,7 @@ body:has(#my-page.active) .bottom-nav {
 }
 
 .action-btn:hover {
-    background: #45a049;
+    background-color: #1ea077;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
 }
@@ -2227,4 +2261,274 @@ body:has(#my-page.active) .bottom-nav {
 
 .info-card.clickable:active {
     transform: scale(0.98);
+}
+
+/* 广告位样式 */
+.ad-banner {
+    width: 100%;
+    height: 140px;
+    margin: 16px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #4B6FFF;
+}
+
+.ad-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-container {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.ad-image {
+    width: 50%;
+    height: 100%;
+    display: block;
+    object-fit: fill;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/* 入口部分样式 */
+.archive-entry {
+    margin-bottom: 16px;
+}
+
+.archive-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 15px 20px;
+    margin: -20px -20px 25px -20px;
+    background-color: #25b887;
+}
+
+.archive-logo-icon {
+    display: flex;
+    align-items: center;
+}
+
+.archive-logo-icon .logo-image {
+    width: 70px;
+    height: 22px;
+    object-fit: contain;
+    margin-right: -2px;
+}
+
+.archive-logo-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.play-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* 修复所有tab的激活颜色 */
+.tab.active,
+.category.active,
+.sort-item.active,
+.hot-new-tabs span.active {
+    color: #34C759;
+    border-bottom-color: #34C759;
+}
+
+.feature-card.blue {
+    background: linear-gradient(135deg, #34C759, #30D158);
+}
+
+.detail-btn {
+    color: #34C759;
+}
+
+.ad-content {
+    position: relative;
+    z-index: 1;
+    padding: 25px;
+    max-width: 70%;
+}
+
+.ad-content h2 {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ad-content p {
+    color: white;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.ad-icons {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 15px;
+}
+
+.icon-group {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-group svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+    opacity: 0.9;
+}
+
+.guide-image-container {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.guide-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.guide-banner {
+    text-align: center;
+    padding: 20px;
+}
+
+.guide-banner h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.guide-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.logo-image-small {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+
+.logo-image-login {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+
+.logo-image-logout {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+
+/* 移除旧的logo样式 */
+.logo-shapes,
+.logo-shapes-small,
+.logo-shapes-login,
+.shape {
+    display: none;
+}
+
+/* 统一其他地方的绿色 */
+.service-icon.green,
+.service-item-home .service-icon.green,
+.service-item-home .service-icon.education,
+.service-item-home .service-icon.verify,
+.service-item-home .service-icon.degree {
+    background-color: #25b887;
+}
+
+.login-btn-primary,
+.action-btn,
+.send-btn,
+.verify-btn {
+    background-color: #25b887;
+}
+
+/* 修改按钮悬停效果 */
+.login-btn-primary:hover,
+.action-btn:hover,
+.send-btn:hover,
+.verify-btn:hover {
+    background-color: #1ea077;
+}
+
+/* 进度条颜色 */
+.progress-fill {
+    background-color: #25b887;
+}
+
+/* 其他可能用到绿色的地方 */
+.profile-card.green {
+    background-color: #25b887;
+}
+
+.info-card.green {
+    background-color: #25b887;
 } 

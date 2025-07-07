@@ -265,44 +265,15 @@ function showToast(message) {
         border-radius: 20px;
         font-size: 16px;
         z-index: 10000;
-        backdrop-filter: blur(20px);
-        animation: toastShow 0.3s ease-out;
+        text-align: center;
     `;
-    
-    // 添加动画CSS
-    if (!document.querySelector('#toast-styles')) {
-        const style = document.createElement('style');
-        style.id = 'toast-styles';
-        style.textContent = `
-            @keyframes toastShow {
-                from {
-                    opacity: 0;
-                    transform: translate(-50%, -50%) scale(0.8);
-                }
-                to {
-                    opacity: 1;
-                    transform: translate(-50%, -50%) scale(1);
-                }
-            }
-            @keyframes toastHide {
-                from {
-                    opacity: 1;
-                    transform: translate(-50%, -50%) scale(1);
-                }
-                to {
-                    opacity: 0;
-                    transform: translate(-50%, -50%) scale(0.8);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    }
     
     document.body.appendChild(toast);
     
     // 2秒后移除
     setTimeout(() => {
-        toast.style.animation = 'toastHide 0.3s ease-out';
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s';
         setTimeout(() => {
             if (toast.parentNode) {
                 toast.parentNode.removeChild(toast);
@@ -509,21 +480,8 @@ function showServicePage(pageId) {
     navItems.forEach(nav => nav.classList.remove('active'));
 }
 
-// 显示页面（通用函数）
+// 显示页面函数
 function showPage(pageId) {
-    if (pageId === 'home-page') {
-        returnToHomePage();
-    } else if (pageId === 'education-page' || pageId === 'assessment-page' || pageId === 'career-page' || pageId === 'platform-page') {
-        // 这些是底部导航栏的主要页面，需要显示导航栏
-        showMainPage(pageId);
-    } else {
-        // 其他页面（服务页面）隐藏导航栏
-        showServicePage(pageId);
-    }
-}
-
-// 显示主要页面（有导航栏）
-function showMainPage(pageId) {
     // 隐藏所有页面
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => page.classList.remove('active'));
@@ -533,6 +491,92 @@ function showMainPage(pageId) {
     if (targetPage) {
         targetPage.classList.add('active');
     }
+
+    // 控制底部导航栏显示/隐藏
+    const bottomNav = document.querySelector('.bottom-nav');
+    if (bottomNav) {
+        // 在首页、平台页、职业页、测评页和从"我的"页面返回时显示导航栏
+        if (pageId === 'home-page' || pageId === 'platform-page' || 
+            pageId === 'career-page' || pageId === 'assessment-page' || 
+            document.querySelector('#my-page .back-btn:active')) {
+            bottomNav.style.display = 'flex';
+            bottomNav.style.visibility = 'visible';
+            document.body.classList.remove('hide-nav');
+        }
+    }
+
+    // 更新导航项状态
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(nav => {
+        nav.classList.toggle('active', nav.getAttribute('data-page') === pageId);
+    });
+}
+
+// 确保从"我的"页面返回时显示导航栏
+document.querySelector('#my-page .back-btn')?.addEventListener('click', function() {
+    const bottomNav = document.querySelector('.bottom-nav');
+    if (bottomNav) {
+        bottomNav.style.display = 'flex';
+        bottomNav.style.visibility = 'visible';
+        document.body.classList.remove('hide-nav');
+    }
+});
+
+// 广告轮播图功能
+function initCarousel() {
+    const container = document.querySelector('.carousel-container');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+
+    if (!container || !dots.length) return;  // 如果元素不存在则退出
+
+    function showSlide(index) {
+        container.style.transform = `translateX(-${index * 50}%)`;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        currentSlide = index;
+    }
+
+    // 点击小圆点切换图片
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showSlide(index));
+    });
+
+    // 自动轮播
+    function autoSlide() {
+        currentSlide = (currentSlide + 1) % 2;
+        showSlide(currentSlide);
+    }
+
+    // 立即开始第一次轮播
+    showSlide(0);
+    
+    // 设置定时器
+    const timer = setInterval(autoSlide, 2000);
+
+    // 当页面不可见时清除定时器
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            clearInterval(timer);
+        } else {
+            setInterval(autoSlide, 2000);
+        }
+    });
+}
+
+// 确保在页面加载完成后初始化轮播图
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('初始化轮播图');
+    initCarousel();
+});
+
+// 从我的页面返回首页的函数
+function returnToHome() {
+    // 显示首页
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+    document.getElementById('home-page').classList.add('active');
     
     // 显示底部导航栏
     const bottomNav = document.querySelector('.bottom-nav');
@@ -540,24 +584,22 @@ function showMainPage(pageId) {
         bottomNav.style.display = 'flex';
         bottomNav.style.visibility = 'visible';
     }
-    
-    // 移除body的隐藏导航栏类
     document.body.classList.remove('hide-nav');
     
-    // 更新地址栏
-    if (pageId === 'home-page' || pageId === 'education-page') {
-        updateAddressBar('my.chsi.com.cn');
-    } else {
-        updateAddressBar('xz.chsi.com.cn');
-    }
-    
-    // 更新导航栏状态
+    // 激活首页导航项
     const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(nav => nav.classList.remove('active'));
-    
-    // 激活对应的导航项
-    const activeNavItem = document.querySelector(`.nav-item[data-page="${pageId}"]`);
-    if (activeNavItem) {
-        activeNavItem.classList.add('active');
+    navItems.forEach(nav => {
+        nav.classList.toggle('active', nav.getAttribute('data-page') === 'home-page');
+    });
+}
+
+// 页面加载完成后添加申请按钮点击事件
+document.addEventListener('DOMContentLoaded', function() {
+    // 为暂无报告页面的申请按钮添加点击事件
+    const applyBtn = document.querySelector('#no-report-page .action-btn');
+    if (applyBtn) {
+        applyBtn.addEventListener('click', function() {
+            showToast('已提交申请，1-3个工作日内生成');
+        });
     }
-} 
+}); 
