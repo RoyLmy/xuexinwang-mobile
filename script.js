@@ -407,7 +407,24 @@ function handleLogin() {
         
         // 延迟跳转到首页
         setTimeout(() => {
-            returnToHomePage();
+            // 显示首页
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById('home-page').classList.add('active');
+            
+            // 显示底部导航栏
+            const bottomNav = document.querySelector('.bottom-nav');
+            if (bottomNav) {
+                bottomNav.style.display = 'flex';
+                bottomNav.style.visibility = 'visible';
+                document.body.classList.remove('hide-nav');
+            }
+            
+            // 激活首页导航项
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(nav => {
+                nav.classList.toggle('active', nav.getAttribute('data-page') === 'home-page');
+            });
         }, 1500);
     } else {
         // 登录失败
