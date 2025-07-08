@@ -72,6 +72,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 添加学籍学历卡片点击事件
     addEducationCardClickHandlers();
+    
+    // 添加页面切换事件监听
+    addPageSwitchListeners();
+    
+    // 添加返回按钮事件监听
+    addBackButtonListeners();
+    
+    // 添加登录表单提交事件监听
+    addLoginFormListener();
 });
 
 // 触摸反馈效果
@@ -620,3 +629,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 }); 
+
+// 添加页面切换事件监听
+function addPageSwitchListeners() {
+    // 实现页面切换逻辑
+}
+
+// 添加返回按钮事件监听
+function addBackButtonListeners() {
+    // 实现返回按钮逻辑
+}
+
+// 添加登录表单提交事件监听
+function addLoginFormListener() {
+    // 实现登录表单提交逻辑
+} 
