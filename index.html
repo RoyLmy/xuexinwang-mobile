@@ -182,19 +182,34 @@
                 </div>
 
                 <div class="recommendation-section">
-                    <h3>我的职业推荐清单</h3>
-                    <div class="login-prompt">
-                        <div class="locked-content">🔒</div>
-                        <button class="login-btn">
-                            登录账号，解锁与您所学专业匹配的职业！ →
-                        </button>
+                    <h3>热门资讯</h3>
+                    <div class="news-list">
+                        <div class="news-item">
+                            <div class="news-image">
+                                <img src="images/liebiao/cjeaq0gkib193wkz.jpeg" alt="考研资讯">
+                            </div>
+                            <div class="news-content">
+                                <h4>2025年全国硕士研究生招生考试报名公告</h4>
+                                <p>报名时间：2024年10月1日至10月31日，请考生提前准备相关材料...</p>
+                                <div class="news-meta">
+                                    <span>教育部</span>
+                                    <span>2024-09-15</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="career-planning-banner">
                     <div class="banner-content">
-                        <div class="banner-title">怎样度过有意义的大学时光</div>
-                        <button class="planning-btn">生涯规划必读 ></button>
+                        <div class="banner-image">
+                            <img src="images/geren/goivzwmtp7qfsqjr.jpeg" alt="大学时光">
+                        </div>
+                        <div class="banner-text">
+                            <div class="banner-title">怎样度过有意义的大学时光</div>
+                            <p class="banner-desc">探索校园生活，发现成长之路</p>
+                            <button class="planning-btn">生涯规划必读 <span class="arrow">→</span></button>
+                        </div>
                     </div>
                 </div>
 
@@ -1100,10 +1115,15 @@
                     <h2>验证报告</h2>
                 </div>
                 
-                <div class="no-data-section">
+                <div class="no-data-section" id="report-status">
                     <div class="no-data-icon-large">📄</div>
                     <p class="no-data-text">暂无报告生成</p>
-                    <button class="action-btn" style="margin-top: 20px;">申请</button>
+                    <div class="generating-status" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>报告正在生成中，请稍候...</p>
+                        <p class="estimate-time">预计需要1-3分钟</p>
+                    </div>
+                    <button class="action-btn" style="margin-top: 20px;" onclick="showGeneratingStatus()">申请</button>
                 </div>
             </div>
         </div>

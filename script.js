@@ -619,16 +619,34 @@ function returnToHome() {
     });
 }
 
+// 显示报告生成状态
+function showGeneratingStatus() {
+    const reportStatus = document.getElementById('report-status');
+    const noDataText = reportStatus.querySelector('.no-data-text');
+    const noDataIcon = reportStatus.querySelector('.no-data-icon-large');
+    const generatingStatus = reportStatus.querySelector('.generating-status');
+    const actionBtn = reportStatus.querySelector('.action-btn');
+    
+    // 隐藏"暂无报告"文本、图标和申请按钮
+    noDataText.style.display = 'none';
+    noDataIcon.style.display = 'none';
+    actionBtn.style.display = 'none';
+    
+    // 显示生成中状态
+    generatingStatus.style.display = 'block';
+    
+    // 显示提示消息
+    showToast('报告申请已提交');
+}
+
 // 页面加载完成后添加申请按钮点击事件
 document.addEventListener('DOMContentLoaded', function() {
     // 为暂无报告页面的申请按钮添加点击事件
     const applyBtn = document.querySelector('#no-report-page .action-btn');
     if (applyBtn) {
-        applyBtn.addEventListener('click', function() {
-            showToast('已提交申请，1-3个工作日内生成');
-        });
+        applyBtn.addEventListener('click', showGeneratingStatus);
     }
-}); 
+});
 
 // 添加页面切换事件监听
 function addPageSwitchListeners() {

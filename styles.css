@@ -531,27 +531,87 @@ body {
 
 /* 生涯规划横幅 */
 .career-planning-banner {
-    background: linear-gradient(135deg, #34C759, #30D158);
+    background: #fff;
     border-radius: 15px;
-    padding: 20px;
     margin-bottom: 25px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.career-planning-banner .banner-content {
+    display: flex;
+    align-items: stretch;
+    min-height: 160px;
+}
+
+.banner-image {
+    flex: 1;
+    overflow: hidden;
+}
+
+.banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.career-planning-banner:hover .banner-image img {
+    transform: scale(1.05);
+}
+
+.banner-text {
+    flex: 1;
+    padding: 25px;
+    background: linear-gradient(135deg, #25b887, #1ea077);
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .banner-title {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 600;
     margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.banner-desc {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 20px;
 }
 
 .planning-btn {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.15);
     color: white;
     border: none;
-    border-radius: 15px;
-    padding: 8px 15px;
+    border-radius: 25px;
+    padding: 12px 24px;
     font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+}
+
+.planning-btn:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateX(5px);
+}
+
+.planning-btn .arrow {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.planning-btn:hover .arrow {
+    transform: translateX(3px);
 }
 
 /* 搜索部分 */
@@ -3040,4 +3100,152 @@ body:has(#my-page.active) .bottom-nav {
 .job-stats span {
     font-size: 13px;
     color: #999;
+}
+
+/* 资讯部分样式 */
+.recommendation-section {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.recommendation-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 4px solid #25b887;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.news-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.news-image {
+    width: 120px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.news-content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-content p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: #888;
+}
+
+.news-meta span {
+    position: relative;
+}
+
+.news-meta span:first-child {
+    color: #25b887;
+    font-weight: 500;
+}
+
+/* 报告生成状态样式 */
+.generating-status {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.generating-status p {
+    color: #666;
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+.estimate-time {
+    color: #888 !important;
+    font-size: 13px !important;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #25b887;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 390px) {
+    .no-data-section {
+        padding: 30px 15px;
+    }
+    
+    .generating-status p {
+        font-size: 14px;
+    }
+    
+    .estimate-time {
+        font-size: 12px !important;
+    }
+    
+    .loading-spinner {
+        width: 35px;
+        height: 35px;
+    }
 } 
