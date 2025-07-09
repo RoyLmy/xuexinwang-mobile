@@ -3137,6 +3137,11 @@ body:has(#my-page.active) .bottom-nav {
     flex-shrink: 0;
 }
 
+.news-image.small-image {
+    width: 90px;
+    height: 60px;
+}
+
 .news-image img {
     width: 100%;
     height: 100%;
