@@ -531,49 +531,26 @@ body {
 
 /* 生涯规划横幅 */
 .career-planning-banner {
-    background: #fff;
+    background: linear-gradient(135deg, #25b887, #1ea077);
     border-radius: 15px;
-    margin-bottom: 25px;
+    margin: 15px;
     overflow: hidden;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 20px rgba(37, 184, 135, 0.2);
 }
 
 .career-planning-banner .banner-content {
-    display: flex;
-    align-items: stretch;
-    min-height: 160px;
-}
-
-.banner-image {
-    flex: 1;
-    overflow: hidden;
-}
-
-.banner-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.career-planning-banner:hover .banner-image img {
-    transform: scale(1.05);
+    padding: 25px;
 }
 
 .banner-text {
-    flex: 1;
-    padding: 25px;
-    background: linear-gradient(135deg, #25b887, #1ea077);
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    text-align: center;
 }
 
 .banner-title {
     font-size: 20px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     line-height: 1.4;
 }
 
@@ -583,25 +560,59 @@ body {
     margin-bottom: 20px;
 }
 
+.banner-features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.feature-icon {
+    font-size: 24px;
+    background: rgba(255,255,255,0.2);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.feature-item span:last-child {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
 .planning-btn {
-    background: rgba(255,255,255,0.15);
-    color: white;
+    background: white;
+    color: #25b887;
     border: none;
     border-radius: 25px;
     padding: 12px 24px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    align-self: flex-start;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .planning-btn:hover {
-    background: rgba(255,255,255,0.25);
-    transform: translateX(5px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
 .planning-btn .arrow {

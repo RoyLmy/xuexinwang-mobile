@@ -4,6 +4,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const pages = document.querySelectorAll('.page');
     const navItems = document.querySelectorAll('.nav-item');
     
+    // 首次加载时显示登录页面
+    pages.forEach(page => page.classList.remove('active'));
+    const loginFormPage = document.getElementById('login-form-page');
+    if (loginFormPage) {
+        loginFormPage.classList.add('active');
+        // 隐藏底部导航栏
+        const bottomNav = document.querySelector('.bottom-nav');
+        if (bottomNav) {
+            bottomNav.style.display = 'none';
+            bottomNav.style.visibility = 'hidden';
+        }
+        document.body.classList.add('hide-nav');
+    }
+    
     // 导航切换功能
     navItems.forEach((navItem) => {
         navItem.addEventListener('click', function() {
@@ -356,16 +370,16 @@ function showLogoutToLoginPage() {
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => page.classList.remove('active'));
     
-    // 显示登录引导页面
-    const loginGuidePage = document.getElementById('login-guide-page');
-    if (loginGuidePage) {
-        loginGuidePage.classList.add('active');
+    // 直接显示登录表单页面
+    const loginFormPage = document.getElementById('login-form-page');
+    if (loginFormPage) {
+        loginFormPage.classList.add('active');
     }
     
     // 更新地址栏
-    updateAddressBar('my.chsi.com.cn');
+    updateAddressBar('account.chsi.com.cn');
     
-    // 隐藏底部导航栏 - 多种方法确保隐藏
+    // 隐藏底部导航栏
     const bottomNav = document.querySelector('.bottom-nav');
     if (bottomNav) {
         bottomNav.style.display = 'none';
@@ -378,6 +392,12 @@ function showLogoutToLoginPage() {
     // 更新导航栏状态（取消所有激活状态）
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(nav => nav.classList.remove('active'));
+    
+    // 清空登录表单
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    if (usernameInput) usernameInput.value = '';
+    if (passwordInput) passwordInput.value = '';
 }
 
 function showLoginFormPage() {
