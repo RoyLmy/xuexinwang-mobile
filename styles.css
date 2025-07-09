@@ -536,7 +536,7 @@ body {
     margin: 15px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    height: 150px;
+    height: 120px;
 }
 
 .banner-bg {
@@ -547,28 +547,25 @@ body {
     height: 100%;
 }
 
+.banner-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right,
+        rgba(37, 184, 135, 0.95),
+        rgba(30, 160, 119, 0.85));
+    z-index: 1;
+}
+
 .banner-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
-.career-planning-banner:hover .banner-bg img {
-    transform: scale(1.1);
-}
-
-.banner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right,
-        rgba(37, 184, 135, 0.9),
-        rgba(30, 160, 119, 0.85) 50%,
-        rgba(37, 184, 135, 0.8));
+    transform: scale(1.02);
+    filter: brightness(0.85);
 }
 
 .career-planning-banner .banner-content {
@@ -576,7 +573,8 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 15px 20px;
+    padding: 12px 15px;
+    z-index: 2;
 }
 
 .banner-text {
@@ -585,54 +583,52 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .banner-header {
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .banner-title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
-    margin-bottom: 4px;
-    line-height: 1.3;
+    margin-bottom: 2px;
+    line-height: 1.2;
     letter-spacing: 0.5px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .banner-desc {
-    font-size: 14px;
+    font-size: 13px;
     opacity: 0.95;
     letter-spacing: 1px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .banner-features {
     display: flex;
     justify-content: center;
-    gap: 25px;
-    margin: 8px 0;
+    gap: 20px;
+    margin: 4px 0;
 }
 
 .feature-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
 }
 
 .feature-icon {
-    font-size: 20px;
+    font-size: 18px;
     background: rgba(255,255,255,0.15);
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .feature-item:hover .feature-icon {
@@ -640,7 +636,7 @@ body {
     background: rgba(255,255,255,0.2);
 }
 
-.feature-item span:last-child {
+.feature-item span {
     font-size: 12px;
     opacity: 0.95;
     font-weight: 500;
@@ -650,68 +646,67 @@ body {
     background: white;
     color: #25b887;
     border: none;
-    border-radius: 18px;
-    padding: 6px 16px;
-    font-size: 13px;
+    border-radius: 15px;
+    padding: 5px 14px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    margin-top: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .planning-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    background: #f8f8f8;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .planning-btn .arrow {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .planning-btn:hover .arrow {
-    transform: translateX(3px);
+    transform: translateX(2px);
 }
 
 @media screen and (max-width: 390px) {
     .career-planning-banner {
-        height: 140px;
+        height: 110px;
         margin: 10px;
     }
 
     .banner-features {
-        gap: 20px;
-        margin: 6px 0;
+        gap: 15px;
+        margin: 3px 0;
     }
 
     .feature-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 18px;
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
     }
 
-    .feature-item span:last-child {
+    .feature-item span {
         font-size: 11px;
     }
 
     .banner-title {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .banner-desc {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .planning-btn {
-        padding: 5px 14px;
-        font-size: 12px;
-        margin-top: 6px;
+        padding: 4px 12px;
+        font-size: 11px;
+        margin-top: 3px;
     }
 }
 
