@@ -530,180 +530,76 @@ body {
 }
 
 /* 生涯规划横幅 */
-.career-planning-banner {
+.career-banner {
     position: relative;
     border-radius: 12px;
-    margin: 15px;
+    margin: 15px 0;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    height: 120px;
+    height: 100px;
 }
 
-.banner-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.banner-bg::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
-}
-
-.banner-bg img {
+.career-banner-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 30%;
 }
 
-.career-planning-banner .banner-content {
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    z-index: 2;
-}
-
-.banner-text {
-    color: white;
-    text-align: center;
+.career-banner .banner-content {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+    padding: 15px 20px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-}
-
-.banner-header {
-    margin-bottom: 2px;
-}
-
-.banner-title {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 2px;
-    line-height: 1.2;
-    letter-spacing: 0.5px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-}
-
-.banner-desc {
-    font-size: 13px;
-    opacity: 0.95;
-    letter-spacing: 1px;
-}
-
-.banner-features {
-    display: flex;
     justify-content: center;
-    gap: 20px;
-    margin: 4px 0;
 }
 
-.feature-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-}
-
-.feature-icon {
+.career-banner .banner-title {
+    color: white;
     font-size: 18px;
-    background: rgba(255,255,255,0.15);
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-}
-
-.feature-item:hover .feature-icon {
-    transform: translateY(-2px);
-    background: rgba(255,255,255,0.2);
-}
-
-.feature-item span {
-    font-size: 12px;
-    opacity: 0.95;
-    font-weight: 500;
-}
-
-.planning-btn {
-    background: white;
-    color: #25b887;
-    border: none;
-    border-radius: 15px;
-    padding: 5px 14px;
-    font-size: 12px;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    margin-top: 4px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-.planning-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-}
-
-.planning-btn .arrow {
+.career-banner .planning-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 15px;
     font-size: 14px;
-    line-height: 1;
-    transition: transform 0.2s ease;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: all 0.3s ease;
 }
 
-.planning-btn:hover .arrow {
-    transform: translateX(2px);
+.career-banner .planning-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateX(3px);
 }
 
 @media screen and (max-width: 390px) {
-    .career-planning-banner {
-        height: 110px;
-        margin: 10px;
+    .career-banner {
+        height: 90px;
+        margin: 12px 0;
     }
 
-    .banner-features {
-        gap: 15px;
-        margin: 3px 0;
+    .career-banner .banner-content {
+        padding: 12px 15px;
     }
 
-    .feature-icon {
-        width: 28px;
-        height: 28px;
+    .career-banner .banner-title {
         font-size: 16px;
+        margin-bottom: 8px;
     }
 
-    .feature-item span {
-        font-size: 11px;
-    }
-
-    .banner-title {
-        font-size: 17px;
-    }
-
-    .banner-desc {
-        font-size: 11px;
-    }
-
-    .planning-btn {
-        padding: 4px 12px;
-        font-size: 11px;
-        margin-top: 3px;
+    .career-banner .planning-btn {
+        padding: 5px 12px;
+        font-size: 13px;
     }
 }
 
