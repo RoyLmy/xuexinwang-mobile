@@ -95,7 +95,221 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 添加登录表单提交事件监听
     addLoginFormListener();
+
+    // 如果曾经登录过，则恢复对应档案展示
+    const savedProfileKey = localStorage.getItem('chsi_demo_profile');
+    if (savedProfileKey && PROFILES[savedProfileKey]) {
+        applyProfileToDom(PROFILES[savedProfileKey]);
+    }
 });
+
+// ====== 多账号/多档案：按密码切换展示 ======
+const PROFILES = {
+    // 默认：北航 金启思
+    liuwang: {
+        key: 'liuwang',
+        person: {
+            name: '金启思',
+            gender: '男',
+            birthday: '1995年11月20日',
+            ethnicity: '满族',
+            idNo: '210200199511201519',
+        },
+        undergraduate: {
+            school: '北京航空航天大学',
+            major: '软件工程',
+            eduType: '普通全日制',
+            duration: '4年',
+            college: '计算机学院',
+            dept: '计算机科学与技术系',
+            className: '软件1341',
+            studentNo: '1311421121',
+            entryDate: '2013年09月01日',
+            leaveDate: '2017年06月30日',
+            status: '不在籍（毕业）',
+            principal: '徐惠彬',
+            certNo: '1143 7120 1705 0018 62',
+        },
+        graduate: {
+            school: '北京航空航天大学',
+            major: '计算机科学与技术',
+            eduType: '普通全日制',
+            duration: '3年',
+            college: '计算机学院',
+            dept: '计算机科学与技术系',
+            className: '计科硕2017',
+            studentNo: 'SY1753201',
+            entryDate: '2017年09月01日',
+            leaveDate: '2020年06月30日',
+            status: '不在籍（毕业）',
+            principal: '徐惠彬',
+            certNo: '1143 7120 2005 0025 89',
+        },
+    },
+
+    // 示例：清华 刘明俨（另一套数据）
+    // 登录密码：liuyuan
+    liuyuan: {
+        key: 'liuyuan',
+        person: {
+            name: '刘明俨',
+            gender: '男',
+            birthday: '1996年03月18日',
+            ethnicity: '汉族',
+            idNo: '110101199603180019',
+        },
+        undergraduate: {
+            school: '清华大学',
+            major: '计算机科学与技术',
+            eduType: '普通全日制',
+            duration: '4年',
+            college: '计算机科学与技术系',
+            dept: '计算机科学与技术系',
+            className: '计科2014',
+            studentNo: '2014XXXXXX',
+            entryDate: '2014年09月01日',
+            leaveDate: '2018年06月30日',
+            status: '不在籍（毕业）',
+            principal: '邱勇',
+            certNo: '10003 2018 0XXX XXXX',
+        },
+        graduate: {
+            school: '清华大学',
+            major: '软件工程',
+            eduType: '普通全日制',
+            duration: '3年',
+            college: '软件学院',
+            dept: '软件工程系',
+            className: '软工硕2018',
+            studentNo: '2018XXXXXX',
+            entryDate: '2018年09月01日',
+            leaveDate: '2021年06月30日',
+            status: '不在籍（毕业）',
+            principal: '邱勇',
+            certNo: '10003 2021 0XXX XXXX',
+        },
+    },
+};
+
+function applyProfileToDom(profile) {
+    if (!profile) return;
+
+    // 1) 高等教育信息页：4个可点击卡片（2学籍 + 2学历）
+    const eduPage = document.getElementById('education-page');
+    if (eduPage) {
+        const studentCards = eduPage.querySelectorAll('.info-section .info-card.green.clickable');
+        if (studentCards[0]) {
+            studentCards[0].querySelector('h4').textContent = profile.undergraduate.school;
+            studentCards[0].querySelector('p').textContent = `${profile.undergraduate.major} | ${profile.undergraduate.eduType}`;
+        }
+        if (studentCards[1]) {
+            studentCards[1].querySelector('h4').textContent = profile.graduate.school;
+            studentCards[1].querySelector('p').textContent = `${profile.graduate.major} | ${profile.graduate.eduType}`;
+        }
+
+        const eduCards = eduPage.querySelectorAll('.info-section .info-card.blue.clickable');
+        if (eduCards[0]) {
+            eduCards[0].querySelector('h4').textContent = profile.undergraduate.school;
+            eduCards[0].querySelector('p').textContent = `${profile.undergraduate.major} | ${profile.undergraduate.eduType}`;
+        }
+        if (eduCards[1]) {
+            eduCards[1].querySelector('h4').textContent = profile.graduate.school;
+            eduCards[1].querySelector('p').textContent = `${profile.graduate.major} | ${profile.graduate.eduType}`;
+        }
+
+        // 学位信息（2条紫色卡片）
+        const degreeCards = eduPage.querySelectorAll('.info-section .info-card.purple');
+        if (degreeCards[0]) {
+            degreeCards[0].querySelector('h4').textContent = profile.undergraduate.school;
+            degreeCards[0].querySelector('p').textContent = `工学学士学位 | ${profile.undergraduate.major}`;
+        }
+        if (degreeCards[1]) {
+            degreeCards[1].querySelector('h4').textContent = profile.graduate.school;
+            degreeCards[1].querySelector('p').textContent = `工学硕士学位 | ${profile.graduate.major}`;
+        }
+    }
+
+    // 2) 学籍详情页（本科/研究生）
+    patchStudentStatusPage('student-status-undergraduate', profile, 'undergraduate', '本科');
+    patchStudentStatusPage('student-status-graduate', profile, 'graduate', '硕士研究生');
+
+    // 3) 学历详情页（本科/研究生）
+    patchEducationDetailPage('education-undergraduate', profile, 'undergraduate', '本科');
+    patchEducationDetailPage('education-graduate', profile, 'graduate', '硕士研究生');
+}
+
+function patchStudentStatusPage(pageId, profile, levelKey, badgeText) {
+    const page = document.getElementById(pageId);
+    const level = profile[levelKey];
+    if (!page || !level) return;
+
+    // 头像信息区
+    const nameEl = page.querySelector('.profile-text h2');
+    const genderBirthEl = page.querySelector('.profile-text p');
+    if (nameEl) nameEl.textContent = profile.person.name;
+    if (genderBirthEl) genderBirthEl.textContent = `${profile.person.gender} ${profile.person.birthday}`;
+
+    const schoolEl = page.querySelector('.profile-school h3');
+    const majorEl = page.querySelector('.profile-school p');
+    if (schoolEl) schoolEl.textContent = level.school;
+    if (majorEl) majorEl.textContent = `${level.major} | ${level.eduType}`;
+
+    const badgeEl = page.querySelector('.profile-badge');
+    if (badgeEl) badgeEl.textContent = badgeText;
+
+    // 明细行：按当前页面已有的 label 找到对应 value 替换
+    setInfoRowValue(page, '民族', profile.person.ethnicity);
+    setInfoRowValue(page, '证件号码', profile.person.idNo);
+    setInfoRowValue(page, '学制', level.duration);
+    setInfoRowValue(page, '学历类别', '普通高等教育');
+    setInfoRowValue(page, '分院', level.college);
+    setInfoRowValue(page, '系所', level.dept);
+    setInfoRowValue(page, '班级', level.className);
+    setInfoRowValue(page, '学号', level.studentNo);
+    setInfoRowValue(page, '入学日期', level.entryDate);
+    setInfoRowValue(page, '学籍状态', level.status);
+    setInfoRowValue(page, '离校日期', level.leaveDate);
+}
+
+function patchEducationDetailPage(pageId, profile, levelKey, badgeText) {
+    const page = document.getElementById(pageId);
+    const level = profile[levelKey];
+    if (!page || !level) return;
+
+    const nameEl = page.querySelector('.profile-text h2');
+    const genderBirthEl = page.querySelector('.profile-text p');
+    if (nameEl) nameEl.textContent = profile.person.name;
+    if (genderBirthEl) genderBirthEl.textContent = `${profile.person.gender} ${profile.person.birthday}`;
+
+    const schoolEl = page.querySelector('.profile-school h3');
+    const majorEl = page.querySelector('.profile-school p');
+    if (schoolEl) schoolEl.textContent = level.school;
+    if (majorEl) majorEl.textContent = `${level.major} | ${level.eduType}`;
+
+    const badgeEl = page.querySelector('.profile-badge');
+    if (badgeEl) badgeEl.textContent = badgeText;
+
+    setInfoRowValue(page, '入学日期', level.entryDate);
+    setInfoRowValue(page, '毕（结）业日期', level.leaveDate);
+    setInfoRowValue(page, '学历类别', '普通高等教育');
+    setInfoRowValue(page, '学制', level.duration);
+    setInfoRowValue(page, '毕（结）业', '毕业');
+    setInfoRowValue(page, '校（院）长姓名', level.principal);
+    setInfoRowValue(page, '证书编号', level.certNo);
+}
+
+function setInfoRowValue(container, labelText, value) {
+    if (!container) return;
+    const rows = container.querySelectorAll('.detail-info .info-row');
+    rows.forEach(row => {
+        const labelEl = row.querySelector('.info-label');
+        const valueEl = row.querySelector('.info-value');
+        if (!labelEl || !valueEl) return;
+        if (labelEl.textContent.trim() === labelText) {
+            valueEl.textContent = value;
+        }
+    });
+}
 
 // 触摸反馈效果
 function addTouchFeedback() {
@@ -430,9 +644,15 @@ function handleLogin() {
     const password = document.getElementById('password').value;
     
     // 验证账号密码
-    if (username === '17600661310' && password === 'liuwang') {
+    // 账号仍可保持固定；密码决定展示哪套档案
+    const profile = PROFILES[password];
+    if (username === '17600661310' && profile) {
         // 登录成功
         showToast('登录成功！');
+
+        // 记住当前档案，并立即渲染（避免点击“高等教育信息”时串到别的数据）
+        localStorage.setItem('chsi_demo_profile', profile.key);
+        applyProfileToDom(profile);
         
         // 延迟跳转到首页
         setTimeout(() => {
