@@ -156,7 +156,7 @@ const PROFILES = {
             gender: '男',
             birthday: '1995年06月06日',
             ethnicity: '汉族',
-            idNo: '220182199506060019',
+            idNo: '220182199506066413',
         },
         undergraduate: {
             school: '清华大学',
