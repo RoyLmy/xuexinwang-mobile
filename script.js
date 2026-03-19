@@ -154,9 +154,9 @@ const PROFILES = {
         person: {
             name: '刘明俨',
             gender: '男',
-            birthday: '1996年03月18日',
+            birthday: '1995年06月06日',
             ethnicity: '汉族',
-            idNo: '110101199603180019',
+            idNo: '220182199506060019',
         },
         undergraduate: {
             school: '清华大学',
