@@ -106,7 +106,7 @@ const PROFILES = {
     liuwang: {
         key: 'liuwang',
         person: {
-            name: '刘明俨',
+            name: '金启思',
             gender: '男',
             birthday: '1995年06月06日',
             ethnicity: '汉族',
