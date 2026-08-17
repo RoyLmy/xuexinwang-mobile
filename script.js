@@ -96,24 +96,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // 添加登录表单提交事件监听
     addLoginFormListener();
 
-    // 如果曾经登录过，则恢复对应档案展示
-    const savedProfileKey = localStorage.getItem('chsi_demo_profile');
-    if (savedProfileKey && PROFILES[savedProfileKey]) {
-        applyProfileToDom(PROFILES[savedProfileKey]);
-    }
+    // 始终应用唯一档案（本科北航 + 研究生清华）
+    applyProfileToDom(PROFILES.liuwang);
+    localStorage.setItem('chsi_demo_profile', 'liuwang');
 });
 
-// ====== 多账号/多档案：按密码切换展示 ======
+// ====== 唯一档案：密码 liuwang（本科北航 + 研究生清华）======
 const PROFILES = {
-    // 默认：北航 金启思
     liuwang: {
         key: 'liuwang',
         person: {
-            name: '金启思',
+            name: '刘明俨',
             gender: '男',
-            birthday: '1995年11月20日',
-            ethnicity: '满族',
-            idNo: '210200199511201519',
+            birthday: '1995年06月06日',
+            ethnicity: '汉族',
+            idNo: '210200199506066413',
         },
         undergraduate: {
             school: '北京航空航天大学',
@@ -123,54 +120,11 @@ const PROFILES = {
             college: '计算机学院',
             dept: '计算机科学与技术系',
             className: '软件1341',
-            studentNo: '1311421121',
-            entryDate: '2013年09月01日',
-            leaveDate: '2017年06月30日',
-            status: '不在籍（毕业）',
-            principal: '徐惠彬',
-            certNo: '1143 7120 1705 0018 62',
-        },
-        graduate: {
-            school: '北京航空航天大学',
-            major: '计算机科学与技术',
-            eduType: '普通全日制',
-            duration: '3年',
-            college: '计算机学院',
-            dept: '计算机科学与技术系',
-            className: '计科硕2017',
-            studentNo: 'SY1753201',
-            entryDate: '2017年09月01日',
-            leaveDate: '2020年06月30日',
-            status: '不在籍（毕业）',
-            principal: '徐惠彬',
-            certNo: '1143 7120 2005 0025 89',
-        },
-    },
-
-    // 示例：清华 刘明俨（另一套数据）
-    // 登录密码：liuyuan
-    liuyuan: {
-        key: 'liuyuan',
-        person: {
-            name: '刘明俨',
-            gender: '男',
-            birthday: '1995年06月06日',
-            ethnicity: '汉族',
-            idNo: '220182199506066413',
-        },
-        undergraduate: {
-            school: '清华大学',
-            major: '计算机科学与技术',
-            eduType: '普通全日制',
-            duration: '4年',
-            college: '计算机科学与技术系',
-            dept: '计算机科学与技术系',
-            className: '计科2013',
             studentNo: '2013010123',
             entryDate: '2013年09月01日',
             leaveDate: '2017年06月30日',
             status: '不在籍（毕业）',
-            principal: '邱勇',
+            principal: '徐惠彬',
             certNo: '100031201705234567',
         },
         graduate: {
@@ -643,14 +597,10 @@ function handleLogin() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     
-    // 验证账号密码
-    // 账号仍可保持固定；密码决定展示哪套档案
-    const profile = PROFILES[password];
-    if (username === '17600661310' && profile) {
-        // 登录成功
+    // 仅保留一套：账号 17600661310 / 密码 liuwang
+    if (username === '17600661310' && password === 'liuwang') {
+        const profile = PROFILES.liuwang;
         showToast('登录成功！');
-
-        // 记住当前档案，并立即渲染（避免点击“高等教育信息”时串到别的数据）
         localStorage.setItem('chsi_demo_profile', profile.key);
         applyProfileToDom(profile);
         
